@@ -1,12 +1,7 @@
-using System;
+﻿using System.Linq;
 
-namespace Application
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
-}
+var temp = "1,2,3,4";
+var arr = temp.ToArray();
+Array.Reverse(arr);
+var newStr = new string(arr);
+Console.WriteLine(newStr);
