@@ -8,7 +8,7 @@ namespace Application
             TravelSumLeftLeave(root, ref sum);
             return sum;
         }
-        public void TravelSumLeftLeave(TreeNode node, ref sum, bool isLeft = false)
+        public void TravelSumLeftLeave(TreeNode node, ref int sum, bool isLeft = false)
         {
             if (node is null) return;
             TravelSumLeftLeave(node.left, ref sum, true);
