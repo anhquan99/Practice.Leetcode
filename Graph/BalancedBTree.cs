@@ -7,10 +7,10 @@ namespace Application
 {
     public partial class Solution
     {
-        public bool IsBalanced(TreeNode root)
-        {
-            int max = MaxDe
-        }
+        // public bool IsBalanced(TreeNode root)
+        // {
+        //     int max = 
+        // }
 
     }
 }
