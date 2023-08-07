@@ -5,19 +5,18 @@ namespace Application
         public int SumOfLeftLeaves(TreeNode root)
         {
             int sum = 0;
-            return TravelSumLeftLeave(root, sum);
+            TravelSumLeftLeave(root, ref sum);
+            return sum;
         }
-        public int TravelSumLeftLeave(TreeNode node, int sum, bool isLeft = false)
+        public void TravelSumLeftLeave(TreeNode node, ref sum, bool isLeft = false)
         {
-            if (node is null) return sum;
+            if (node is null) return;
+            TravelSumLeftLeave(node.left, ref sum, true);
+            TravelSumLeftLeave(node.right, ref sum);
             if (isLeft && node.left is null && node.right is null)
             {
                 sum += node.val;
-                return sum;
             }
-            sum += TravelSumLeftLeave(node.left, sum, true);
-            sum += TravelSumLeftLeave(node.right, sum);
-            return sum;
         }
     }
 }
