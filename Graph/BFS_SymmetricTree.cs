@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
-using Internal;
 
 namespace Application
 {
@@ -36,15 +35,22 @@ namespace Application
                     temp.Add(node.right);
                 }
                 if (left != right) return false;
-                var first = temp.Take(temp.Count / 2).Select(x => x is null ? -1 : x.val).ToList;
+                var first = temp.Take(temp.Count / 2).Select(x => x is null ? -1 : x.val).ToList();
                 var second = Enumerable.Reverse(temp.Skip(temp.Count / 2).Select(x => x is null ? -1 : x.val)).ToList();
                 for (int i = 0; i < first.Count; i++)
                 {
                     if (first[i] != second[i]) return false;
                 }
-                temp.ForEach(x => queue.Enqueue(x));
+                temp.Where(x => x is not null).ToList().ForEach(x => queue.Enqueue(x));
             }
             return true;
+        }
+        public bool IsSymmetricSolution(TreeNode rootLeft, TreeNode rootRight)
+        {
+            if (rootLeft is null && rootRight is null) return true;
+            if (rootLeft is null || rootRight is null) return false;
+            if (rootLeft.val != rootRight.val) return false;
+            return IsSymmetricSolution(rootLeft.left, rootRight.right) && IsSymmetricSolution(rootLeft.right, rootRight.left);
         }
 
     }

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 
-var temp = "1,2,3,4";
-var arr = temp.ToArray();
-Array.Reverse(arr);
-var newStr = new string(arr);
-Console.WriteLine(newStr);
+List<int> temp = new List<int> { 1, 2, 3, 4, 5, 6 };
+var max = temp.Max();
+var min = temp.Min();
+
+Console.WriteLine("max: {0} -- min: {1}", max, min);
