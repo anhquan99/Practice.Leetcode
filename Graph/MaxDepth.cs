@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace Application
 {
     public partial class Solution
@@ -18,15 +13,15 @@ namespace Application
             if (node is null) return;
             path.Add(node.val);
             if (max < path.Count) max = path.Count;
-            Travel(node.left, new List<int>(path), ref max);
-            Travel(node.right, new List<int>(path), ref max);
+            Travel(node.left, new List<int>(path), max);
+            Travel(node.right, new List<int>(path), max);
         }
-        public int MaxDepth(TreeNode root)
-        {
-            if (root == null)
-                return 0;
+        // public int MaxDepth(TreeNode root)
+        // {
+        //     if (root == null)
+        //         return 0;
 
-            return 1 + Math.Max(MaxDepth(root.left), MaxDepth(root.right));
-        }
+        //     return 1 + Math.Max(MaxDepth(root.left), MaxDepth(root.right));
+        // }
     }
 }

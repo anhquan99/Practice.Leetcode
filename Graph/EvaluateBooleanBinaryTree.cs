@@ -4,22 +4,21 @@ namespace Application
     {
         public bool EvaluateTree(TreeNode root)
         {
-            var expression = new List<int>();
-            BuildExpression(root, expression);
-            var result = Convert.ToBoolean(expression[0]);
-            for (int i = 1; i < expression.Count; i += 2)
-            {
-                if (expression[i] == 2) result = result || Convert.ToBoolean(expression[i + 1]);
-                else if (expression[i] == 3) result = result && Convert.ToBoolean(expression[i + 1]);
-            }
-            return result;
+            if (root.val == 0 || root.val == 1) return Convert.ToBoolean(root.val);
+            return TravelEvaluateTree(root);
         }
-        private void BuildExpression(TreeNode node, List<int> expression)
+        private bool TravelEvaluateTree(TreeNode node)
         {
-            if (node is null) return;
-            expression.Add(node.val);
-            BuildExpression(node.left, expression);
-            BuildExpression(node.right, expression);
+            if (node.val == 2)
+            {
+                return TravelEvaluateTree(node.left) || TravelEvaluateTree(node.right);
+            }
+            else if (node.val == 3)
+            {
+                return TravelEvaluateTree(node.left) && TravelEvaluateTree(node.right);
+            }
+            return Convert.ToBoolean(node.val);
         }
+
     }
 }
