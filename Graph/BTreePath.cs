@@ -4,8 +4,8 @@ namespace Application
     {
         public IList<string> BinaryTreePaths(TreeNode root)
         {
-            List<int> path = new List<int>();
-            List<string> paths = new List<string>();
+            List<int> path = new();
+            List<string> paths = new();
             TravelBPath(root, path, paths);
             return paths;
         }
