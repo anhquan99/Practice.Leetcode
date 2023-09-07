@@ -4,17 +4,20 @@ namespace Application
     {
         public int DiameterOfBinaryTree(TreeNode root)
         {
-            int max = 0;
-            TravelDiameter(root, 0, ref max);
-            return max;
+            if (root is null) return 0;
+            int leftSubTreeDepth = DiameterOfBinaryTree(root.left);
+            int rightSubTreeDepth = DiameterOfBinaryTree(root.right);
+            int diameter = TravelDiameter(root.left) + TravelDiameter(root.right);
+            diameter = Math.Max(diameter, Math.Max(leftSubTreeDepth, rightSubTreeDepth));
+            return diameter;
+
         }
-        public void TravelDiameter(TreeNode node, int dept, ref int max)
+        public int TravelDiameter(TreeNode node)
         {
-            if (node is null) return;
-            dept++;
-            if (dept > max) max = dept;
-            TravelDiameter(node.left, dept, ref max);
-            TravelDiameter(node.right, dept, ref max);
+            if (node is null) return 0;
+            int leftSubDiameter = TravelDiameter(node.left);
+            int rightSubDiameter = TravelDiameter(node.right);
+            return Math.Max(leftSubDiameter, rightSubDiameter) + 1;
         }
     }
 }
