@@ -1,7 +1,7 @@
 ﻿using System.Linq;
+using Application;
 
-List<int> temp = new List<int> { 1, 2, 3, 4, 5, 6 };
-var max = temp.Max();
-var min = temp.Min();
+int num = 192;
 
-Console.WriteLine("max: {0} -- min: {1}", max, min);
+HashTableSolution s = new HashTableSolution();
+s.IsFascinating(783);
