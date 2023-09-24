@@ -2,7 +2,7 @@ using System.Text;
 
 namespace Application
 {
-    public class HashTableSolution
+    public partial class HashTableSolution
     {
         public int[] DistinctDifferenceArray(int[] nums)
         {

@@ -1,6 +1,6 @@
 namespace Application
 {
-    public partial class Solution
+    public partial class HashTableSolution
     {
         public int[][] MergeArrays(int[][] nums1, int[][] nums2)
         {
