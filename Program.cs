@@ -1,13 +1,10 @@
-﻿using System.Linq;
-using Application;
+﻿using Application;
 
-List<List<int>> cases = new List<List<int>>
-{
-    new List<int>() { 3, 6 },
-    new List<int>() { 1, 5 },
-    new List<int>() { 4, 7 }
-};
+DynamicProgrammingSolution s = new DynamicProgrammingSolution();
 
-
-HashTableSolution s = new HashTableSolution();
-s.NumberOfPoints(cases);
+// Console.WriteLine("{0} - {1}", 1, s.ClimbStairs(1));
+// Console.WriteLine("{0} - {1}", 2, s.ClimbStairs(2));
+Console.WriteLine("{0} - {1}", 3, s.ClimbStairs(3));
+// Console.WriteLine("{0} - {1}", 4, s.ClimbStairs(4));
+// Console.WriteLine("{0} - {1}", 5, s.ClimbStairs(5));
+// Console.WriteLine("{0} - {1}", 6, s.ClimbStairs(6));
