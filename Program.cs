@@ -1,10 +1,13 @@
 ﻿using Application;
 
-DynamicProgrammingSolution s = new DynamicProgrammingSolution();
-
-// Console.WriteLine("{0} - {1}", 1, s.ClimbStairs(1));
-// Console.WriteLine("{0} - {1}", 2, s.ClimbStairs(2));
-Console.WriteLine("{0} - {1}", 3, s.ClimbStairs(3));
-// Console.WriteLine("{0} - {1}", 4, s.ClimbStairs(4));
-// Console.WriteLine("{0} - {1}", 5, s.ClimbStairs(5));
-// Console.WriteLine("{0} - {1}", 6, s.ClimbStairs(6));
+Solution s = new Solution();
+var example = new[] { 1, 2, 3, 4, 5 };
+var index = 0;
+var head = new ListNode(example[index]);
+var temp = head;
+for (int i = 1; i < example.Length; i++)
+{
+    temp.next = new ListNode(example[i]);
+    temp = temp.next;
+}
+s.RemoveNthFromEnd(head, 2);
