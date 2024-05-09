@@ -1,13 +1,25 @@
-﻿using Application;
+﻿using System.Diagnostics;
+using Application;
 
-Solution s = new Solution();
-var example = new[] { 1, 2, 3, 4, 5 };
-var index = 0;
-var head = new ListNode(example[index]);
-var temp = head;
-for (int i = 1; i < example.Length; i++)
+var q = new QueueSolution();
+var testCase = new[] {
+    // "RD",
+    // "RDD",
+    // "RDRDRDRD", "DRDRDRR",
+    // "DDRRRR",
+    // "DRRDRDRDRDDRDRDRD",
+    "DRRD"
+    };
+var result = new[] {
+    // "Radiant",
+    // "Dire",
+    // "Radiant", "Dire",
+    // "Radiant",
+    // "Dire",
+    "Dire"
+    };
+for (int i = 0; i < testCase.Length; i++)
 {
-    temp.next = new ListNode(example[i]);
-    temp = temp.next;
+    // Console.WriteLine(q.PredictPartyVictory(testCase[i]));
+    Debug.Assert(q.PredictPartyVictory(testCase[i]) == result[i]);
 }
-s.RemoveNthFromEnd(head, 2);
