@@ -5,18 +5,19 @@ using Application;
 
 var q = new QueueSolution();
 var nums = new int[][] {
-    new int[] { 8, 2, 4, 7 }, new int[] { 10, 1, 2, 4, 7, 2 },
-    new int[] { 4, 2, 2, 2, 4, 4, 2, 2 } };
-var lmits = new int[] {
-    4, 5,
-    0 };
+    // new int[] { 1,-2,3,-2}, 
+    new int[] { 5,-3,5 },
+    // new int[] { -3,-2,-3 }, new int[] {1,-2,3,-2,2,2} 
+    };
 var result = new[] {
-    2, 4,
-    3 };
+    // 3, 
+    10,
+    // -2, 6 
+    };
 var test = new QueueSolution.ProductOfNumbers();
-for (int i = 0; i < lmits.Length; i++)
+for (int i = 0; i < nums.Length; i++)
 {
-    var actual = q.LongestSubarray(nums[i], lmits[i]);
+    var actual = q.MaxSubarraySumCircular(nums[i]);
     if (result[i] != (int?)actual)
     {
         Console.WriteLine("Wrong answer!");
