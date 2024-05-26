@@ -1,13 +1,14 @@
 ﻿using Application;
 
-var s = new Solution();
+var s = new HashTableSolution();
 var exmple = new[] {
-    1,
-    // 9 
+    "23",
+    "",
+    "2"
     };
 foreach (var item in exmple)
 {
-    var result = s.ReadBinaryWatch(item).ToList();
+    var result = s.LetterCombinations(item).ToList();
     result.ForEach(x => Console.Write($"{x} - "));
     Console.WriteLine();
 }

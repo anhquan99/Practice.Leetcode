@@ -1,42 +1,56 @@
+using System.Security;
 using System.Text;
 
 namespace Application;
 public partial class HashTableSolution
 {
-    Dictionary<char, string> dic = new Dictionary<char, string>() { { '1', string.Empty }, { '2', "abc" }, { '3', "def" }, { '4', "ghi" }, { '5', "jkl" }, { '6', "mno" }, { '7', "pqrs" }, { '8', "tuv" }, { '9', "wxyz" } };
-    List<char> key;
-    List<int> value;
+    Dictionary<char, string> dic = new Dictionary<char, string>() { { '2', "abc" }, { '3', "def" }, { '4', "ghi" }, { '5', "jkl" }, { '6', "mno" }, { '7', "pqrs" }, { '8', "tuv" }, { '9', "wxyz" } };
+
     public IList<string> LetterCombinations(string digits)
     {
-        var result = new HashSet<string>();
-        key = new List<char>();
-        value = new List<int>();
-        foreach (char c in digits)
-        {
-            key.Add(c);
-            value.Add(-1);
-        }
-        Permute(result, 0);
-        return result.ToList();
+        if (string.IsNullOrEmpty(digits)) return new List<string>();
+        // var result = new HashSet<string>();
+        // key = new List<char>();
+        // foreach (char c in digits)
+        // {
+        //     key.Add(c);
+        // }
+        // char[] subResult = new char[digits.Length];
+        // Permute(result, subResult, 0, 0);
+        var result = new List<string>();
+        Permute(0, new List<char>(), digits, result);
+        return result;
     }
-    private void Permute(HashSet<string> result, int index)
+    // private void Permute(HashSet<string> result, char[] subResult, int index, int value)
+    // {
+    //     if (index >= key.Count || value >= dic[key[index]].Length)
+    //     {
+    //         return;
+    //     }
+    //     subResult[index] = dic[key[index]][value];
+    //     if (index == key.Count - 1)
+    //     {
+    //         result.Add(new string(subResult));
+    //     }
+    //     for (int i = index; i < key.Count; i++)
+    //     {
+    //         Permute(result, subResult, i + 1, 0);
+    //     }
+    //     Permute(result, subResult, index, value + 1);
+    // }
+    void Permute(int index, List<char> subResult, string digits, List<string> result)
     {
-        if (index == key.Count)
+        if (index == digits.Length)
         {
-            var sb = new StringBuilder();
-            for (int i = 0; i < index; i++)
-            {
-                sb.Append(dic[key[i]][value[i]]);
-            }
-            result.Add(sb.ToString());
+            result.Add(new string(subResult.ToArray()));
             return;
         }
-        value[index]++;
-        while (value[index] < dic[key[index]].Length - 2)
+        string possibleLetters = dic[digits[index]];
+        foreach (var i in possibleLetters)
         {
-            Permute(result, index + 1);
+            subResult.Add(i);
+            Permute(index + 1, subResult, digits, result);
+            subResult.RemoveAt(subResult.Count - 1);
         }
-        Permute(result, index);
-
     }
 }
