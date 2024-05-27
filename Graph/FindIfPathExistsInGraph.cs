@@ -2,7 +2,7 @@ using System.Diagnostics.Metrics;
 
 namespace Application
 {
-    public partial class Solution
+    public partial class GraphSolution
     {
         public bool ValidPath(int n, int[][] edges, int source, int destination)
         {

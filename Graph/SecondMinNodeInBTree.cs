@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Application
 {
-    public partial class Solution
+    public partial class GraphSolution
     {
         public int FindSecondMinimumValue(TreeNode root)
         {

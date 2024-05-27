@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Intrinsics.X86;
-using System.Text;
-
 namespace Application
 {
-    public partial class Solution
+    public partial class GraphSolution
     {
         public bool IsSymmetric(TreeNode root)
         {

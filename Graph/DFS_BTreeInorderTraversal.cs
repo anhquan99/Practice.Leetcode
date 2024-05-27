@@ -14,7 +14,7 @@ namespace Application
             this.right = right;
         }
     }
-    public partial class Solution
+    public partial class GraphSolution
     {
         public IList<int> InorderTraversal(TreeNode root)
         {

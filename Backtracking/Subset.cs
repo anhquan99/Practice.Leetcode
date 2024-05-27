@@ -1,5 +1,5 @@
 namespace Application;
-public partial class Solution
+public partial class BackTrackingSolution
 {
     public IList<IList<int>> Subsets(int[] nums)
     {

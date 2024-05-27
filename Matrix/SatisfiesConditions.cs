@@ -1,5 +1,5 @@
 namespace Application;
-public partial class Solution
+public partial class MaxtrixSolution
 {
     public bool SatisfiesConditions(int[][] grid)
     {

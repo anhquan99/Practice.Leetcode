@@ -1,6 +1,6 @@
 namespace Application
 {
-    public partial class Solution
+    public partial class GraphSolution
     {
         private TreeNode clonedNode;
         public TreeNode GetTargetCopy(TreeNode original, TreeNode cloned, TreeNode target)

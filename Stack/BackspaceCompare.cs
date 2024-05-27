@@ -1,7 +1,7 @@
 using System.Text;
 
 namespace Application;
-public partial class Solution
+public partial class StackSolution
 {
     public bool BackspaceCompare(string s, string t)
     {

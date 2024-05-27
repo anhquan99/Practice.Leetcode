@@ -1,5 +1,5 @@
 namespace Application;
-public partial class Solution
+public partial class BackTrackingSolution
 {
     List<int> dic = new List<int>()
     {

@@ -9,7 +9,7 @@ public class ListNode
         this.next = next;
     }
 }
-public partial class Solution
+public partial class GraphSolution
 {
     public ListNode RemoveNthFromEnd(ListNode head, int n)
     {

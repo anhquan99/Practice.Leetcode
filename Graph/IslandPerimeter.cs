@@ -1,6 +1,6 @@
 namespace Application
 {
-    public partial class Solution
+    public partial class GraphSolution
     {
         public int IslandPerimeter(int[][] grid)
         {

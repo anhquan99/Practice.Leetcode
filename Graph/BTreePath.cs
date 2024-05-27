@@ -1,6 +1,6 @@
 namespace Application
 {
-    public partial class Solution
+    public partial class GraphSolution
     {
         public IList<string> BinaryTreePaths(TreeNode root)
         {
