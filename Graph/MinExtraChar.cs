@@ -6,61 +6,26 @@ namespace Application
     {
         public int MinExtraChar(string s, string[] dictionary)
         {
-            var root = new ExtraCharTrie();
-            InsertWordsToDic(root, dictionary);
-            var result = 0;
-            int slow = 0, fast = 0;
-            var tmp = root;
-            var end = true;
-            for (; fast < s.Length; fast++)
+            HashSet<string> ss = new HashSet<string>();
+            foreach (string w in dictionary)
             {
-                if (tmp[s[fast]] != null)
+                ss.Add(w);
+            }
+            int n = s.Length;
+            int[] f = new int[n + 1];
+            f[0] = 0;
+            for (int i = 1; i <= n; ++i)
+            {
+                f[i] = f[i - 1] + 1;
+                for (int j = 0; j < i; ++j)
                 {
-                    tmp = tmp[s[fast]];
-                    if (tmp.End)
+                    if (ss.Contains(s.Substring(j, i - j)))
                     {
-                        slow = fast;
-                        end = true;
-                    }
-                    else
-                    {
-                        end = false;
-                    }
-                }
-                else
-                {
-                    tmp = root;
-                    slow = end ? fast : slow;
-                    while (fast <= s.Length - 1 && tmp[s[fast]] == null)
-                    {
-                        fast++;
-                    }
-                    result += fast - slow;
-                    slow = fast;
-                    if (fast < s.Length)
-                    {
-                        tmp = tmp[s[fast]];
-                    }
-                    else tmp = null;
-                    if (tmp != null)
-                    {
-                        if (tmp.End)
-                        {
-                            slow = fast;
-                            end = true;
-                        }
-                        else
-                        {
-                            end = false;
-                        }
+                        f[i] = Math.Min(f[i], f[j]);
                     }
                 }
             }
-            if (!end)
-            {
-                result += s.Length - slow;
-            }
-            return result;
+            return f[n];
         }
         void InsertWordsToDic(ExtraCharTrie root, string[] dic)
         {
