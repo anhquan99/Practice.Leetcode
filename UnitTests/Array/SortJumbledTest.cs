@@ -1,15 +1,8 @@
-using Application;
-
-namespace UnitTest;
+namespace UnitTest.Array;
 
 [TestClass]
-public class SortJumbledTest
+public class SortJumbledTest : ArrayTest
 {
-    private readonly ArraySolution _s;
-    public SortJumbledTest()
-    {
-        _s = new ArraySolution();
-    }
     [TestMethod]
     public void Case1()
     {
