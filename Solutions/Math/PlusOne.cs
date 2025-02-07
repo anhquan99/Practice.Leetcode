@@ -3,44 +3,24 @@ public partial class MathSolution
 {
     public int[] PlusOne(int[] digits)
     {
-        var stack = new Stack<int>();
-        var remain = false;
-        for (int i = digits.Length - 1; i >= 0; i--)
-        {
-            if (i == digits.Length - 1)
+        int[] arrayJustInCase = new int[digits.Count() + 1];
+        digits[digits.Count() - 1]++;
+
+        for (int i = digits.Count() - 1; i >= 0; i--)
+            if (digits[i] == 10)
             {
-                if (digits[i] == 9)
-                {
-                    remain = true;
-                    stack.Push(0);
-                }
-                else stack.Push(digits[i] + 1);
-            }
-            else
-            {
-                if (remain && digits[i] == 9)
-                {
-                    stack.Push(0);
-                }
-                else if (remain)
-                {
-                    stack.Push(digits[i] + 1);
-                    remain = false;
-                }
+                digits[i] = 0;
+
+                if (i > 0)
+                    digits[i - 1]++;
                 else
                 {
-                    stack.Push(digits[i]);
+                    arrayJustInCase[i] = 1;
+                    for (int x = 1; x < digits.Count(); x++)
+                        arrayJustInCase[x] = digits[x];
                 }
             }
-        }
-        if (!remain) return stack.ToArray();
-        var result = new int[digits.Length + 1];
-        var index = 0;
-        result[index++] = 1;
-        while (stack.Count > 0)
-        {
-            result[index++] = stack.Pop();
-        }
-        return result;
+
+        return Array.Exists(arrayJustInCase, v => v != 0) ? arrayJustInCase : digits;
     }
 }
