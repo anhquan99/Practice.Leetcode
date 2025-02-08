@@ -1,7 +1,7 @@
 using System.Collections;
 
 namespace Application;
-public partial class PrefixSum
+public partial class PrefixSuffixSumSolution
 {
     public bool CheckSubarraySum(int[] nums, int k)
     {

@@ -1,7 +1,7 @@
 using System.Collections;
 
 namespace Application;
-public partial class PrefixSum
+public partial class PrefixSuffixSumSolution
 {
     public int SubarraysDivByK(int[] nums, int k)
     {
